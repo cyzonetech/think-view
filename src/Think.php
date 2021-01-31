@@ -197,7 +197,7 @@ class Think
 
         if (0 !== strpos($template, '/')) {
             $template   = str_replace(['/', ':'], $depr, $template);
-            $controller = $request->controller();
+            $controller = preg_replace('/^admin\./i', '', $request->controller());
 
             if (strpos($controller, '.')) {
                 $pos        = strrpos($controller, '.');
